@@ -6,6 +6,9 @@ import compression from 'compression'
 import cors from 'cors'
 
 import indexRoutes from './routes/indexRoutes'
+import authRoutes from './routes/authRoutes'
+import promoRoutes from './routes/jartate/promoRoutes'
+import feriaRoutes from './routes/jartate/feriaRoutes'
 
 class Server {
   public app: express.Application
@@ -38,6 +41,9 @@ class Server {
 
   routes() {
     this.app.use(indexRoutes)
+    this.app.use('/auth', authRoutes)
+    this.app.use('/jartate', promoRoutes)
+    this.app.use('/jartate', feriaRoutes)
   }
 
   start() {

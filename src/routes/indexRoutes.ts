@@ -9,7 +9,7 @@ class IndexRoutes {
   }
 
   routes() {
-    this.router.get('/', (req, res) => res.send('INDEX ROUTE!'))
+    this.router.get('/', (req, res) => res.send('Endpoints Disponibles: /auth/signup'))
   }
 }
 

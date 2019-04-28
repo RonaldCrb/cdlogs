@@ -20,7 +20,7 @@ class Server {
   }
 
   config() {
-    const MONGO_URI = 'mongodb+srv://authtenant:Rdama-7962610@cluster0-0h4sq.mongodb.net/test?retryWrites=true'
+    const MONGO_URI = 'removed for security purposes'
     mongoose.set('useFindAndModify', true)
     mongoose.connect(MONGO_URI, {
       useNewUrlParser: true,

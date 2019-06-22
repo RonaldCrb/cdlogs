@@ -21,7 +21,6 @@ class AuthRoutes {
     res.send(email + '##' + name + '##' + password)
   }
   
-
   signIn(req: Request, res: Response) {
     const email = req.body.email
     const password = req.body.password
@@ -29,8 +28,6 @@ class AuthRoutes {
     console.log(email + '##' + name + '##' + password)
     res.send(email + '##' + name + '##' + password)
   }
-  
-  
 
 }
 

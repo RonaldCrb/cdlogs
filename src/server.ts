@@ -5,10 +5,9 @@ import mongoose from 'mongoose'
 import compression from 'compression'
 import cors from 'cors'
 
-import indexRoutes from './routes/indexRoutes'
 import authRoutes from './routes/authRoutes'
-import promoRoutes from './routes/jartate/promoRoutes'
-import feriaRoutes from './routes/jartate/feriaRoutes'
+import userRoutes from './routes/userRoutes'
+import smartlogRoutes from './routes/smartlogRoutes'
 
 class Server {
   public app: express.Application
@@ -20,13 +19,12 @@ class Server {
   }
 
   config() {
-    const MONGO_URI = 'removed for security purposes'
     mongoose.set('useFindAndModify', true)
-    mongoose.connect(MONGO_URI, {
+    mongoose.connect(process.env.MONGO_URI, {
       useNewUrlParser: true,
       useCreateIndex: true
     })
-    .then(res => console.log('MongoDB Atlas Connected!'))
+    .then(() => console.log('MongoDB Atlas Connected!'))
 
     // Settings
     this.app.set('port', process.env.PORT || 3001) //PORT Env Variable
@@ -40,10 +38,9 @@ class Server {
   }
 
   routes() {
-    this.app.use(indexRoutes)
-    this.app.use('/auth', authRoutes)
-    this.app.use('/jartate', promoRoutes)
-    this.app.use('/jartate', feriaRoutes)
+    this.app.use('api/v1/auth', authRoutes)
+    this.app.use('api/v1/smartlogs', smartlogRoutes)
+    this.app.use('api/v1/user', userRoutes)
   }
 
   start() {

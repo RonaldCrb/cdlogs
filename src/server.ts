@@ -5,9 +5,13 @@ import mongoose from 'mongoose'
 import compression from 'compression'
 import cors from 'cors'
 
+// Routes
+import homeRoutes from './routes/homeRoutes'
 import authRoutes from './routes/authRoutes'
 import userRoutes from './routes/userRoutes'
 import smartlogRoutes from './routes/smartlogRoutes'
+
+const uri: string = process.env.MONGO_URI || ''
 
 class Server {
   public app: express.Application
@@ -20,11 +24,12 @@ class Server {
 
   config() {
     mongoose.set('useFindAndModify', true)
-    mongoose.connect(process.env.MONGO_URI, {
+    mongoose.connect(uri, {
       useNewUrlParser: true,
       useCreateIndex: true
     })
-    .then(() => console.log('MongoDB Atlas Connected!'))
+    .then(() => console.log('MongoDB Atlas connected!'))
+    .catch(() => console.log('MongoDB Atlas failed to connect!'))
 
     // Settings
     this.app.set('port', process.env.PORT || 3001) //PORT Env Variable
@@ -38,9 +43,10 @@ class Server {
   }
 
   routes() {
-    this.app.use('api/v1/auth', authRoutes)
-    this.app.use('api/v1/smartlogs', smartlogRoutes)
-    this.app.use('api/v1/user', userRoutes)
+    this.app.use('/', homeRoutes)
+    this.app.use('/api/v1/auth', authRoutes)
+    this.app.use('/api/v1/smartlogs', smartlogRoutes)
+    this.app.use('/api/v1/users', userRoutes)
   }
 
   start() {

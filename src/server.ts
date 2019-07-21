@@ -24,7 +24,7 @@ class Server {
 
   config() {
     mongoose.set('useFindAndModify', true)
-    mongoose.connect('mongodb+srv://CDlogs:GAvV9YWssvJNpDx@cluster0-5qedj.mongodb.net/test?retryWrites=true&w=majority', {
+    mongoose.connect(uri, {
       useNewUrlParser: true,
       useCreateIndex: true
     })

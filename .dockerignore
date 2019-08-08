@@ -1,0 +1,23 @@
+# docker compose files should not be in any of the images.
+.docker-compose*.yml
+
+# Dockerfiles are not necessary to be inside the images, use docker history
+Dockerfile*
+
+# dockerignore file is not necessary to be in the images
+.dockerignore
+
+# git folder should not be inside the image 
+.git
+.gitignore
+# README is not necessary inside the images
+README.md
+
+# Dependencies directory
+node_modules
+
+# Ignore built ts files
+dist/**/*
+
+# Editor files are not necessary for images
+.vscode

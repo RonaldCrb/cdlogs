@@ -11,7 +11,9 @@ import authRoutes from './routes/authRoutes'
 import userRoutes from './routes/userRoutes'
 import smartlogRoutes from './routes/smartlogRoutes'
 
-const uri: string = process.env.MONGO_URI || ''
+const uri: string = 'mongodb://localhost:27017/your_database_name';
+const user: string = 'username';
+const pwd: string = 'password';
 
 class Server {
   public app: express.Application
@@ -26,7 +28,9 @@ class Server {
     mongoose.set('useFindAndModify', true)
     mongoose.connect(uri, {
       useNewUrlParser: true,
-      useCreateIndex: true
+      useCreateIndex: true,
+      user: user,
+      pass: pwd,
     })
     .then(() => console.log('MongoDB Atlas connected!'))
     .catch(() => console.log('MongoDB Atlas failed to connect!'))

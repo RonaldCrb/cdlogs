@@ -1,5 +1,5 @@
 import { Request, Response, Router } from 'express'
-
+import { HOME_MESSAGE } from '../constants/cdlogs.constants'
 class HomeRoutes {
   router: Router
 
@@ -13,7 +13,7 @@ class HomeRoutes {
   }
 
   home(req: Request, res: Response) {
-    res.status(200).send(`<h1>Welcome to CDlogs REST API</h1>`)
+    res.status(200).send(HOME_MESSAGE)
   }
 }
 

@@ -7,9 +7,7 @@
     "ts": "tsc -w",
     "dev": "nodemon ./dist/server.js",
     "start": "node ./dist/server.js",
-    "start:dev": "nodemon",
-    "build": "tsc",
-    "heroku-postbuild": "tsc"
+    "build": "tsc"
   },
   "engines": {
     "node": "10.16.0",

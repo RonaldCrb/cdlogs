@@ -16,6 +16,9 @@ README.md
 # Dependencies directory
 node_modules
 
+# database files need to be ignored or it will throw a permission error on compose up command
+cdlogs
+
 # Ignore built ts files
 dist/**/*
 

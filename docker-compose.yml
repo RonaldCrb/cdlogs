@@ -1,19 +1,25 @@
-version: '2.4' # version 2.4 is necessary for the depends_on feature
+version: "2.4"
 
 services:
-  cdlogs-middleman:
-    build: .
-    volumes:
-      - .:/usr/src/app
-      - /usr/src/app/node_modules
+  ts:
+    build:
+      context: .
+      target: dev
     ports:
-      - 3001:3001
-      - 9229:9229
-    command: npm start
+      - "3001:3001"
+      - "9229:9229"
+    depends_on:
+      - db
+    volumes:
+      - .:/app
 
-  mongo:
-    image: mongo
+  db:
+    container_name: cdlogs-database
+    image: mongo:latest
     restart: always
+    volumes:
+      - ./cdlogs:/data/db
     environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: example
+      - MONGO_INITDB_DATABASE=CDlogs
+    ports:
+      - 27017:27017

@@ -3,11 +3,21 @@
 
 ## Installation
 
-1. clone repository
+clone repository
 
-2. run docker-compose
+```
+git clone git@bitbucket.org:RonaldCrb/cdlogs-middleman.git
+```
 
-```bash
+npm install
+
+```
+npm install
+```
+
+run docker-compose
+
+```
 docker-compose up
 ```
 ## Usage

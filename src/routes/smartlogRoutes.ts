@@ -1,7 +1,6 @@
 import { Request, Response, Router } from 'express'
 import Smartlog from '../models/Smartlog'
 import { ISmartlog } from '../types/interfaces'
-import moment from 'moment';
 class SmartlogRoutes {
   router: Router
 

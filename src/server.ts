@@ -9,6 +9,7 @@ import cors from 'cors'
 // Routes
 import homeRoutes from './routes/homeRoutes'
 import smartlogRoutes from './routes/smartlogRoutes'
+import decompressionRoutes from './routes/decompressionRoutes'
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
@@ -43,6 +44,7 @@ class Server {
   routes() {
     this.app.use('/', homeRoutes)
     this.app.use('/api/v1/smartlogs', smartlogRoutes)
+    this.app.use('/api/v1/decompression', decompressionRoutes)
   }
 
   start() {

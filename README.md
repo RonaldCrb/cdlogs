@@ -26,7 +26,7 @@ this setup compiles and hot reloads code for local development, it is intended t
 
 ## Available Endpoints
 
-As the main goal of the project is to organize Dive Records in a programatic fashion, you can start using the Web service right now, as it is deployed (give it a minute after the first request since im using a free dyno at the moment)... i will create a user interface with propper authentication and Multi-Tenancy soon and start building functionalities around more powerful documental control services such as Equipment testing and auditing as per DESIGN, FMEA & FMECA, and general Audit and Assurance following international best practices (IMCA, ADCI)
+As the main goal of the project is to organize Dive Records in a programatic fashion, you can start using the it right now ... i will create a user interface with propper authentication and Multi-Tenancy soon and start building functionalities around more powerful documental control services such as Equipment testing and auditing as per DESIGN, FMEA & FMECA, and general Audit and Assurance following international best practices (IMCA, ADCI)
 
 1. GET => http://localhost:3001/api/v1/smartlogs/:id (get Smartlog by ID)
 2. GET => http://localhost:3001/api/v1/smartlogs (List of all existing Smartlogs)

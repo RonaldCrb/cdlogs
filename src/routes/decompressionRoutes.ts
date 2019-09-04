@@ -1,5 +1,7 @@
 import { Request, Response, Router } from 'express'
 import { noDecompressionLimit, groupLetter, repetLetter, residualNitrogenTime } from 'diving-decompression'
+import usNavyAirDecompressionTable from '../tables/usnavy-deco-rev7'
+import _ from 'lodash'
 class SmartlogRoutes {
   router: Router
 
@@ -13,8 +15,20 @@ class SmartlogRoutes {
     this.router.post('/groupLetter', this.groupLetter)
     this.router.post('/repetLetter', this.repetLetter)
     this.router.post('/residualNitrogenTime', this.residualNitrogenTime)
+    this.router.post('/decoTest', this.decotest)
   }
 
+  async decotest(req: Request, res: Response): Promise<void> {
+      const dive = req.body.dive
+      const table: any = _.find(usNavyAirDecompressionTable.tableData, (element) => {
+        return element.minfsw <= dive.depth && dive.depth <= element.maxfsw;
+      });
+      const decoObject = _.find(table.rows, (element) => {
+      return element.minTime <= dive.bottomTime && dive.bottomTime <= element.maxTime;
+      });
+      console.log(decoObject)
+    }
+  
   async noDecompressionLimit(req: Request, res: Response): Promise<void> {
     const respuesta = await noDecompressionLimit({
       depth: req.body.depth,

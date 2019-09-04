@@ -16,11 +16,13 @@
   "author": "Ron Alonzo <alonzo.ronald@gmail.com> (ron-alonzo.web.app)",
   "license": "MPL-2.0",
   "dependencies": {
+    "@types/lodash": "^4.14.137",
     "compression": "^1.7.4",
     "cors": "^2.8.5",
     "diving-decompression": "^1.0.4",
     "express": "^4.16.4",
     "helmet": "^3.16.0",
+    "lodash": "^4.17.15",
     "moment": "^2.24.0",
     "mongoose": "^5.5.2",
     "morgan": "^1.9.1"
